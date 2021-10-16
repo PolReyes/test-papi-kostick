@@ -1,23 +1,42 @@
-import logo from './logo.svg';
+
 import './App.css';
+import './components/css/styles.css';
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
+import Login from './components/Login';
+import Protected from './Protected';
+import Create from './components/admin/Create';
+import Usuarios from './components/admin/Usuarios';
+import Test from './components/user/Test';
+import Resultado from './components/admin/Resultado';
+import  Update from './components/admin/Update';
+import ProtectedUser from './ProtectedUser';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+        
+        <Route path="/usuarios">
+          <Protected Cmp={Usuarios}/>
+        </Route>
+        <Route path="/test">
+          <ProtectedUser Cmp={Test}/>
+        </Route>
+        <Route path="/create">
+          <Protected Cmp={Create}/>
+        </Route>
+        <Route path="/resultado/:id">
+          <Protected Cmp={Resultado}/>
+        </Route>
+        <Route path="/update/:id">
+          <Protected Cmp={Update}/>
+        </Route>
+        <Route path="/" exact>
+          <Login/>
+        </Route>
+        </Switch>
+      </Router>     
     </div>
   );
 }

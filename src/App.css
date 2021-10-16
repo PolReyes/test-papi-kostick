@@ -1,6 +1,13 @@
 .App {
   text-align: center;
 }
+.Bg {
+  text-align: center;
+  background: #152E5B;
+  /*background: -webkit-linear-gradient(left, #0033A0 , #008EDD , #00E3D9 ); */
+  height: 100vh;
+  width: 100%; 
+}
 
 .App-logo {
   height: 40vmin;
@@ -36,3 +43,4 @@
     transform: rotate(360deg);
   }
 }
+
