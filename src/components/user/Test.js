@@ -157,11 +157,14 @@ const Test = () => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         minWidth: 400,
+        maxHeight: '100%',
         //bgcolor: '#B4C7E7',
         bgcolor: 'white',
         //border: '2px solid #000',
         boxShadow: 24,
         p: 4,
+        
+        overflowY: 'auto',
       };
 
       const styleFin = {
@@ -170,9 +173,12 @@ const Test = () => {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         minWidth: 400,
+        maxHeight: '100%',
         bgcolor: '#B4C7E7',
         //border: '2px solid #000',
         boxShadow: 24,
+        overflowY: 'auto',
+        //overflowX: 'auto',
         //p: 4,
       };
     
@@ -351,7 +357,8 @@ const Test = () => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} >
+        <div className="col-lg-12">
+        <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
           ¡Hola {user.data.nombre}, te damos la bienvenida a la plataforma de evaluación!
           </Typography>
@@ -412,6 +419,8 @@ const Test = () => {
             <button  className="btn btn-block" onClick={handleCloseInicio} style={{margin:10,backgroundColor:'#23498D',color:'#fff'} } disabled={habilitar}>Empezar</button >
             </Box> 
         </Box>
+        </div>
+        
       </Modal>  
       
 

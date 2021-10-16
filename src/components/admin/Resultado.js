@@ -119,7 +119,7 @@ const options = {
     return (
         <div>
              <Header/><br/><br/>
-            <Grid xs={10} style={{ minHeight: '100vh', margin:'auto',}} item  >
+            <Grid xs={12} md={10} style={{ minHeight: '100vh', margin:'auto',}} item  >
             <Card sx={{ padding:'20px'}} elevation={4}>
             <Typography style={{fontWeight: 'bold'}} variant="h4" color="primary" gutterBottom margin={4}>
             {data.message}

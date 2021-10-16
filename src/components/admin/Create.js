@@ -107,13 +107,13 @@ const Create = () => {
             null
             }
             <div className="row">
-                <div className="col-lg-6 pe-0">
+                <div className="col-lg-6">
                     <div className="form-floating m-3">
                     <input type="text" class="form-control" onChange={handleInput} name="name" placeholder="Nombre" required />
                     <label for="nombre">Nombre</label>
                     </div>
                 </div>
-                <div className="col-lg-6 ps-0">
+                <div className="col-lg-6">
                     <div className="form-floating m-3">
                     <input type="text" class="form-control" onChange={handleInput} name="email" placeholder="Correo electrónico" required />
                     <label for="email">Correo eletrónico</label>
@@ -121,13 +121,13 @@ const Create = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-lg-6 pe-0">
+                <div className="col-lg-6">
                     <div className="form-floating m-3">
                     <input type="text" class="form-control" onChange={handleInput} name="documentNumber" placeholder="Dni" required/>
                     <label for="dni">Número de documento</label>
                     </div>
                 </div>
-                <div className="col-lg-6 ps-0">
+                <div className="col-lg-6 ">
                     <div className="form-floating m-3">
                     <input type="text" class="form-control" onChange={handleInput} name="phone" placeholder="Teléfono" required/>
                     <label for="telefono">Teléfono</label>
@@ -135,13 +135,13 @@ const Create = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-lg-6 pe-0">
+                <div className="col-lg-6 ">
                     <div className="form-floating m-3">
                     <input type="text" class="form-control" onChange={handleInput} name="username" placeholder="Usuario" required/>
                     <label for="usuario">Usuario</label>
                     </div>
                 </div>
-                <div className="col-lg-6 ps-0">
+                <div className="col-lg-6 ">
                     <div className="form-floating m-3">
                     <input type="text" class="form-control" onChange={handleInput} name="password" placeholder="Contraseña" required/>
                     <label for="contraseña">Contraseña</label>
@@ -149,7 +149,7 @@ const Create = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-lg-6 pe-0">
+                <div className="col-lg-6 ">
                     <div className="form-floating m-3">
                     <select className="form-select" id="rol" name="rol_id" onChange={handleInput}>
                     <option selected>Seleccionar</option>
@@ -159,7 +159,7 @@ const Create = () => {
                     <label for="rol">Rol</label>
                     </div>
                 </div>
-                <div className="col-lg-6 ps-0">
+                <div className="col-lg-6 ">
                     <div className="form-floating m-3">
                     <select className="form-select" id="Cargo" name="job_id" onChange={handleInput}>
                     <option selected>Seleccionar</option>
