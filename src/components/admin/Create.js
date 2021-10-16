@@ -163,6 +163,7 @@ const Create = () => {
                     <div className="form-floating m-3">
                     <select className="form-select" id="Cargo" name="job_id" onChange={handleInput}>
                     <option selected>Seleccionar</option>
+                    <option>Analista TI</option>
                     {
                     data.map((item,index)=>(
 
