@@ -16,6 +16,7 @@ const Resultado = (props) => {
         getData()
         getTest()
         getCandidato()
+        getJob()
         
     },[])
 
@@ -66,6 +67,19 @@ const Resultado = (props) => {
     
    // console.log(data)
 }
+const [job,setJob]=useState([]);
+
+    async function getJob(){
+        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
+        result = await result.json();
+        if (result.code===1) {
+            setJob(result.jobList)
+        }
+        
+        
+        
+    }
+
 const Chart = () => {
   setChartData({
     labels: [
@@ -129,7 +143,13 @@ const options = {
           <div className="d-flex justify-content-around">
               <div><h5 className="text-white">Candidato: {candidato.nombre}</h5></div>
               <div><h5 className="text-white">DNI: {candidato.dni}</h5></div>
-              <div><h5 className="text-white">Cargo: {candidato.job_id==1?"Desarrollador Python":"Desarrollador NodeJs"}</h5></div>
+              <div><h5 className="text-white">Cargo: {
+                    job.map((item,index)=>(
+                      candidato.job_id===item.id?
+                      item.office:
+                      null
+                  ))
+                }</h5></div>
           </div>
           
           
@@ -143,7 +163,7 @@ const options = {
              data.code===1 && test.code===1?
              <>
              <div className="table-responsive">
-             <table class="table table-bordered">
+             <table class="table table-sm table-bordered">
   <thead className="bg-light">
     <tr>
       <th scope="col">Factor</th>
