@@ -12,8 +12,22 @@ const Usuarios = () => {
 
     useEffect(()=>{
         getData()
+        getJob()
         //enviarEmail(0)
     },[])
+
+    const [job,setJob]=useState([]);
+
+    async function getJob(){
+        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
+        result = await result.json();
+        if (result.code===1) {
+            setJob(result.jobList)
+        }
+        
+        
+        
+    }
 
     const columnas=[
         {
@@ -59,7 +73,15 @@ const Usuarios = () => {
         {
             title:'Cargo',
             field:'job_id',
-            render:(row)=><div>{row.job_id==1?"Desarrollador Python":"Desarrollador NodeJs"}</div>
+            render:(row)=><div>
+                {
+                    job.map((item,index)=>(
+                        row.job_id===item.id?
+                        item.office:
+                        null
+                    ))
+                }
+                </div>
         },
         {
             title:'Creado',
@@ -82,20 +104,22 @@ const Usuarios = () => {
         let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user`)
         result = await result.json();
         setData(result.usersList)
-        console.log(data)
+        //console.log(data)
     }
     const history=useHistory();
     
     const [alert, setAlert] = useState("")
-
+    const [error, setError] = useState("")
     
     async function enviarEmail(id){
         let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/sendemail/`+id)
         result = await result.json();
         if(result.code===1){
             setAlert(result.message)
+            setError("")
         }else{
-            setAlert("Correo electrónico inválido")
+            setError("Correo electrónico inválido")
+            setAlert("")
         }
     
     }
@@ -108,6 +132,16 @@ const Usuarios = () => {
                     <>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>¡Mensaje! </strong>{alert}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    </>:
+                    null
+                }
+                {
+                    error?
+                    <>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>¡Mensaje! </strong>{error}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     </>:
@@ -161,6 +195,7 @@ const Usuarios = () => {
           }}
           />
             </div>
+            
            
         </div>
     )

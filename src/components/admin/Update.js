@@ -192,10 +192,10 @@ const Update = (props) => {
                     job.map((item,index)=>(
                     candidato.job_id===item.id?
                     <>
-                    <option selected key={item.id}>{item.office} </option>
+                    <option selected key={item.id} value={item.id}>{item.office} </option>
                     </>:    
                     <>
-                    <option key={index}>{item.office} </option>
+                    <option key={index} value={item.id} >{item.office} </option>
                     </>
                     ))
                     }
