@@ -62,13 +62,35 @@ const Test = () => {
     };
     const [data, setData] = useState({
         
-        
+        /*items:[
+            {   countFactor: 0, factor_id: '1'},
+            {   countFactor: 0, factor_id: '2'},
+            {   countFactor: 0, factor_id: '3'},
+            {   countFactor: 0, factor_id: '4'},
+            {   countFactor: 0, factor_id: '5'},
+            {   countFactor: 0, factor_id: '6'},
+            {   countFactor: 0, factor_id: '7'},
+            {   countFactor: 0, factor_id: '8'},
+            {   countFactor: 0, factor_id: '9'},
+            {   countFactor: 0, factor_id: '10'},
+            {   countFactor: 0, factor_id: '11'},
+            {   countFactor: 0, factor_id: '12'},
+            {   countFactor: 0, factor_id: '13'},
+            {   countFactor: 0, factor_id: '14'},
+            {   countFactor: 0, factor_id: '15'},
+            {   countFactor: 0, factor_id: '16'},
+            {   countFactor: 0, factor_id: '17'},
+            {   countFactor: 0, factor_id: '18'},
+            {   countFactor: 0, factor_id: '19'},
+            {   countFactor: 0, factor_id: '20'},
+        ]*/
     })
 
  
     
     //const arreglo=answer.sort();
-    let items=[];
+    //const [items, setItems] = useState([])
+    //let items=[];
     const repetidos=[];
     let contador=1;
     function comparar(a, b) {
@@ -89,7 +111,14 @@ const Test = () => {
             if(conversion[index+1]===conversion[index]){
                 contador++;
             }else{
-
+                /*setItems([
+                    ...items,
+                    
+                        {factor_id:conversion[index]}
+                    
+                        
+                    
+                    ])*/
                 items.push({countFactor:contador,factor_id:conversion[index]})
                 //repetidos.push(contador)
                 contador=1
