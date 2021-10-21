@@ -90,7 +90,7 @@ const Test = () => {
     
     //const arreglo=answer.sort();
     //const [items, setItems] = useState([])
-    //let items=[];
+    let items=[];
     const repetidos=[];
     let contador=1;
     function comparar(a, b) {
