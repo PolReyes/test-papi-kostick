@@ -8,6 +8,7 @@ import { Box, typography } from '@mui/system'
 //import { ContactlessOutlined } from '@mui/icons-material'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import imgFin from '../img/RPA-1.jpg'
+import { SettingsRemote, SettingsSystemDaydream, SignalCellularConnectedNoInternet0BarRounded } from '@mui/icons-material'
 
 const Test = () => {
 
@@ -22,7 +23,13 @@ const Test = () => {
     
     const handleAnswerButtonClick=()=>{
        // console.log(Object.values(answer).length)
-
+        /*setItems({
+            ...items,
+            "1":{
+                countFactor:5,
+                }
+            
+        })*/
         for (let index = 0; index < currentQuestion3; index++) {
             if (currentQuestion3===(Object.values(answer).length-1)) {
                 const nextQuestion1=currentQuestion1+3
@@ -62,35 +69,37 @@ const Test = () => {
     };
     const [data, setData] = useState({
         
-        /*items:[
-            {   countFactor: 0, factor_id: '1'},
-            {   countFactor: 0, factor_id: '2'},
-            {   countFactor: 0, factor_id: '3'},
-            {   countFactor: 0, factor_id: '4'},
-            {   countFactor: 0, factor_id: '5'},
-            {   countFactor: 0, factor_id: '6'},
-            {   countFactor: 0, factor_id: '7'},
-            {   countFactor: 0, factor_id: '8'},
-            {   countFactor: 0, factor_id: '9'},
-            {   countFactor: 0, factor_id: '10'},
-            {   countFactor: 0, factor_id: '11'},
-            {   countFactor: 0, factor_id: '12'},
-            {   countFactor: 0, factor_id: '13'},
-            {   countFactor: 0, factor_id: '14'},
-            {   countFactor: 0, factor_id: '15'},
-            {   countFactor: 0, factor_id: '16'},
-            {   countFactor: 0, factor_id: '17'},
-            {   countFactor: 0, factor_id: '18'},
-            {   countFactor: 0, factor_id: '19'},
-            {   countFactor: 0, factor_id: '20'},
-        ]*/
+        
     })
 
  
     
     //const arreglo=answer.sort();
-    //const [items, setItems] = useState([])
-    let items=[];
+   /* const [items, setItems] = useState({
+    
+       "1":0,
+        "2":0,
+        "3":0,
+        "4":0,
+        "5":0,
+        "6":0,
+        "7":0,
+        "8":0,
+        "9":0,
+        "10":0,
+        "11":0,
+        "12":0,
+        "13":0,
+        "14":0,
+        "15":0,
+        "16":0,
+        "17":0,
+        "18":0,
+        "19":0,
+        "20":0,
+
+    })*/
+    
     const repetidos=[];
     let contador=1;
     function comparar(a, b) {
@@ -98,35 +107,105 @@ const Test = () => {
       }
 
     let conversion=[];
+    //const [resultado, setResultado] = useState([])
+    //let resultado=[];
+    let resultado=[
+        {countFactor:0, factor_id:'1'},
+        {countFactor:0, factor_id:'2'},
+        {countFactor:0, factor_id:'3'},
+        {countFactor:0, factor_id:'4'},
+        {countFactor:0, factor_id:'5'},
+        {countFactor:0, factor_id:'6'},
+        {countFactor:0, factor_id:'7'},
+        {countFactor:0, factor_id:'8'},
+        {countFactor:0, factor_id:'9'},
+        {countFactor:0, factor_id:'10'},
+        {countFactor:0, factor_id:'11'},
+        {countFactor:0, factor_id:'12'},
+        {countFactor:0, factor_id:'13'},
+        {countFactor:0, factor_id:'14'},
+        {countFactor:0, factor_id:'15'},
+        {countFactor:0, factor_id:'16'},
+        {countFactor:0, factor_id:'17'},
+        {countFactor:0, factor_id:'18'},
+        {countFactor:0, factor_id:'19'},
+        {countFactor:0, factor_id:'20'},
+    ]
+        
 
+    ;
     
-
+    let fin={};
     const handleAddItems =()=>{
         //Object.entries(answer.sort(comparar));
         conversion=(Object.values(answer))
         console.log(conversion)
         conversion.sort(comparar)
-
+        //const {items} = data;
+        
         for (let index = 0; index <conversion.length; index++) {
+            
             if(conversion[index+1]===conversion[index]){
                 contador++;
+                
             }else{
-                /*setItems([
-                    ...items,
+
+                
                     
-                        {factor_id:conversion[index]}
-                    
-                        
-                    
-                    ])*/
-                items.push({countFactor:contador,factor_id:conversion[index]})
+                /*setResultado([
+                    ...resultado,
+                    {countFactor:contador, factor_id:conversion[index]}
+                ]) */ 
+               resultado.push({countFactor:contador, factor_id:conversion[index]})
+               //id.push(conversion[index])
+               //cantidad.push(contador)
+                //items.push({[conversion[index]]:contador})
+                //setvalores({...valores,[conversion[index]]:contador})
+                //factor.push(conversion[index])
                 //repetidos.push(contador)
                 contador=1
                 
             }
             
+           /* setData({
+                ...data,resultado
+            })*/
+            
+            
         } 
         
+
+        
+            //items.push
+            
+            /* for (let index = 1; index <=20; index++) {
+                 //while (resultado[index-1].factor_id!=index) {
+                     //console.log("aea|")
+                 //}
+                if(resultado[index-1]!=null && resultado[index-1].factor_id===index+1)
+                {
+                items.push({countFactor:resultado[index-1].countFactor, factor_id:resultado[index-1].factor_id})
+                } else {
+                items.push({countFactor:0, factor_id:"1"})
+                }
+
+             }*/
+            
+            
+            
+        
+            //console.log(resultado[1].countFactor)
+       
+        
+        let itemsMap = resultado.map(item=>{
+            return [item.factor_id,item]
+        });
+        var itemsMapArr = new Map(itemsMap); // Pares de clave y valor
+        
+        let items = [...itemsMapArr.values()]; // Conversión a un array
+        
+        //console.log(resultado);
+
         setData({
             ...data,
                     items,
@@ -134,11 +213,11 @@ const Test = () => {
                 
             
         })
-       
-        //console.log(arreglo)
-        //console.log(resultado)
-        //console.log(repetidos) 
-        //console.log(data) 
+        //const marcasFinal = {...resultado, ...items};
+        //console.log(Object.assign(items,resultado))
+        //console.log(marcasFinal)
+        //console.log(itemsMapArr);
+        //console.log(fin) 
     }
 
     const clearSelection= (name)=>{
@@ -225,15 +304,15 @@ const Test = () => {
         <Header/><br/><br/>
         <Grid  style={{ minHeight: '100vh' }} xs={11} xl={4} style={{ minHeight: '100vh', margin:'auto',}} item>
         <Card sx={{ minWidth: 275 , padding:'20px'}} elevation={4}>
-        <h2 className="fw-bold" style={{color:'#23498D'}}>
+        <h2 className="fw-bold" style={{color:'#23498D'}} >
         TEST PAPI KOSTICK
         </h2>
-        <Typography component="div"  variant="h5" color="primary" fontWeight="bold">
+        <h3 className="fw-bold" style={{color:'#23498D'}} >
         <Box sx={{ textAlign: 'right', m: 1 }}>{currentQuestion3+1+"/"+TestData.length}</Box>
-        </Typography>
+        </h3>
         <div style={{ backgroundColor:'#4593DE',textAlign: 'left', padding:20, marginBottom:5}} >
         <Box sx={{ textAlign: 'left', m: 1}}>
-        <Typography variant="h5" fontWeight="bold">{TestData[currentQuestion1].questionText}</Typography>
+        <h4 className="fw-bold mb-3">{TestData[currentQuestion1].questionText}</h4>
         </Box >
         
         {
@@ -252,7 +331,7 @@ const Test = () => {
         </div>
         <div style={{ backgroundColor:'#B4C7E7',textAlign: 'left', padding:20, marginBottom:5}} >
         <Box sx={{ textAlign: 'left', m: 1 }}>
-        <Typography variant="h5" fontWeight="bold">{TestData[currentQuestion2].questionText}</Typography>
+        <h4 className="fw-bold mb-3">{TestData[currentQuestion2].questionText}</h4>
         </Box>
         
         {
@@ -267,7 +346,7 @@ const Test = () => {
 </div>
 <div style={{ backgroundColor:'#DAE3F3',textAlign: 'left', padding:20, marginBottom:5}} >
 <Box sx={{ textAlign: 'left', m: 1 }}>
-        <Typography variant="h5" fontWeight="bold">{TestData[currentQuestion3].questionText}</Typography>
+        <h4 className="fw-bold mb-3">{TestData[currentQuestion3].questionText}</h4>
         </Box>
         
         {
@@ -329,7 +408,7 @@ const Test = () => {
              
       <Modal
         open={open}
-        //onClose={handleClose}
+        onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

@@ -1104,7 +1104,7 @@ export const TestData =[
             {answerText:'Hago muchísimos amigos',
             answerValue:'S',
             factor_id:getId('S')  }, 
-            {answerText:'TDedico mucho tiempo a pensar',
+            {answerText:'Dedico mucho tiempo a pensar',
             answerValue:'R',
             factor_id:getId('R')  }
         ],
