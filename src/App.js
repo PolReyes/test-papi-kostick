@@ -10,6 +10,7 @@ import Test from './components/user/Test';
 import Resultado from './components/admin/Resultado';
 import  Update from './components/admin/Update';
 import ProtectedUser from './ProtectedUser';
+import Cargo from './components/admin/Cargo';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/update/:id">
           <Protected Cmp={Update}/>
+        </Route>
+        <Route path="/cargo">
+          <Protected Cmp={Cargo}/>
         </Route>
         <Route path="/" exact>
           <Login/>

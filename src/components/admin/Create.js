@@ -109,13 +109,13 @@ const Create = () => {
             <div className="row">
                 <div className="col-lg-6">
                     <div className="form-floating m-3">
-                    <input type="text" class="form-control" onChange={handleInput} name="name" placeholder="Nombre" required />
+                    <input type="text" className="form-control" onChange={handleInput} name="name" placeholder="Nombre" required />
                     <label for="nombre">Nombre</label>
                     </div>
                 </div>
                 <div className="col-lg-6">
                     <div className="form-floating m-3">
-                    <input type="text" class="form-control" onChange={handleInput} name="email" placeholder="Correo electrónico" required />
+                    <input type="text" className="form-control" onChange={handleInput} name="email" placeholder="Correo electrónico" required />
                     <label for="email">Correo eletrónico</label>
                     </div>
                 </div>
@@ -123,13 +123,13 @@ const Create = () => {
             <div className="row">
                 <div className="col-lg-6">
                     <div className="form-floating m-3">
-                    <input type="text" class="form-control" onChange={handleInput} name="documentNumber" placeholder="Dni" required/>
+                    <input type="text" className="form-control" onChange={handleInput} name="documentNumber" placeholder="Dni" required/>
                     <label for="dni">Número de documento</label>
                     </div>
                 </div>
                 <div className="col-lg-6 ">
                     <div className="form-floating m-3">
-                    <input type="text" class="form-control" onChange={handleInput} name="phone" placeholder="Teléfono" required/>
+                    <input type="text" className="form-control" onChange={handleInput} name="phone" placeholder="Teléfono" required/>
                     <label for="telefono">Teléfono</label>
                     </div>
                 </div>
@@ -137,13 +137,13 @@ const Create = () => {
             <div className="row">
                 <div className="col-lg-6 ">
                     <div className="form-floating m-3">
-                    <input type="text" class="form-control" onChange={handleInput} name="username" placeholder="Usuario" required/>
+                    <input type="text" className="form-control" onChange={handleInput} name="username" placeholder="Usuario" required/>
                     <label for="usuario">Usuario</label>
                     </div>
                 </div>
                 <div className="col-lg-6 ">
                     <div className="form-floating m-3">
-                    <input type="text" class="form-control" onChange={handleInput} name="password" placeholder="Contraseña" required/>
+                    <input type="text" className="form-control" onChange={handleInput} name="password" placeholder="Contraseña" required/>
                     <label for="contraseña">Contraseña</label>
                     </div>
                 </div>
