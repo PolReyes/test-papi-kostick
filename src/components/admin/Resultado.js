@@ -85,6 +85,17 @@ const [job,setJob]=useState([]);
         
     }
 
+    function getCargo(id){
+      var cargo=""
+      job.map(item => (
+        item.id===id?
+        cargo=item.office
+        :
+        null
+      ))
+      return cargo;
+    }
+
 const Chart = () => {
   setChartData({
     labels: [
@@ -167,9 +178,9 @@ const print = () => {
       // etc
     },
     headStyles: { halign: 'center',fillColor: [21, 101, 192] },
-    head:[['Nombre','DNI','Celular']],
+    head:[['Nombre','DNI','Cargo']],
     body:[[
-      candidato.nombre,candidato.dni,candidato.celular
+      candidato.nombre,candidato.dni,getCargo(candidato.job_id)
     ]],
     theme:'grid'
   })

@@ -34,21 +34,35 @@ const Cargo = () => {
     async function getUser(){
         let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user`)
         result = await result.json();
+        if (result.code===1) {
         setUser(result.usersList)
         //jobid.push(user.job_id)
-
+        
+            //history.push("/usuarios")
+        } else {
+            
+        }
+        
+        
+    }
+    getJobId();
+    function getJobId(){
+        for (let index = 0; index < user.length; index++) {
+            jobid.push(user[index].job_id)
+            //console.log(jobid)
+            
+        }
+        //getUser()
+        console.log(jobid)
+    }
     
-
+    function verificar(id){
+        return jobid===id
+        //const found = jobid.find(element => element == id);
+        //console.log(found)
         
     }
     
-    getJobId()
-    function getJobId(){
-        user.map(item=>{
-            jobid.push(item.job_id)
-        })
-        console.log(jobid)
-    }
 
     async function getData(){
         let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
@@ -228,16 +242,19 @@ const Cargo = () => {
                 <tbody>
                     
                     {
-                    data.map((item,index)=>(
+                    data.map((item,index) =>(
                     <tr key={index}>
                     <td>
                     {item.office}
                     </td>
                     <td>
                     <button onClick={()=>editarCargo(item)} className="btn btn-sm text-white m-1" style={{backgroundColor:'#23498D'}}>< EditIcon fontSize="small" /> Editar</button>
-                    {user.job_id===item.id?
+                    {
+                    jobid.includes(item.id)===true?
                     null:
-                    <button onClick={()=>deleteCargo(item)} className="btn btn-sm text-white bg-secondary m-1"><ClearIcon fontSize="small" /> Eliminar</button>
+                    <button onClick={()=>deleteCargo(item)} className="btn btn-sm text-white bg-secondary m-1"><ClearIcon fontSize="small"  /> Eliminar</button>
+                    
+                    
                     }
                     
                     </td>
