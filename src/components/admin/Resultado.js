@@ -15,6 +15,7 @@ const Resultado = (props) => {
     
     const [candidato, setCandidato] = useState([]);
     const [error,setError]=useState("");
+    const [fecha,setFecha] = useState([])
 
     useEffect(()=>{
         Chart()
@@ -30,6 +31,7 @@ const Resultado = (props) => {
         result = await result.json();
         if (result.code===1) {
           setData(result)  
+        
         } else {
           setError("El candidato no ha realizado el test")
         }
@@ -46,12 +48,14 @@ const Resultado = (props) => {
       result = await result.json();
       if (result.code===1) {
         setTest(result) 
+        //console.log(test.date)
         for (const Obj of result.data) {
           //setSuma(Obj.respuesta)
           suma.push(Obj.respuesta)
           //factor.push(Obj.factor_id)
         }
-        console.log(suma)
+        console.log(result.date)
+        setFecha(result.date)
       } else {
         setError("El candidato no ha realizado el test")
       }
@@ -172,15 +176,16 @@ const print = () => {
   },
   styles: {fontSize: 6},
     columnStyles: {
-      0: {halign: 'center' ,cellWidth: 120},
-      1: {halign: 'center' ,cellWidth: 80},
+      0: {halign: 'center' ,cellWidth: 100},
+      1: {halign: 'center' ,cellWidth: 50},
       2: {halign: 'center' },
+      3: {halign: 'center' }
       // etc
     },
     headStyles: { halign: 'center',fillColor: [21, 101, 192] },
-    head:[['Nombre','DNI','Cargo']],
+    head:[['Nombre','DNI','Cargo','Fecha/hora de creación']],
     body:[[
-      candidato.nombre,candidato.dni,getCargo(candidato.job_id)
+      candidato.nombre,candidato.dni,getCargo(candidato.job_id),fecha.created_at?fecha.created_at.slice(0,19).replace('T',' '):null
     ]],
     theme:'grid'
   })
@@ -324,6 +329,7 @@ function getResultado(codigo){
                       null
                     ))
                 }</h5></div>
+            <div><h5 className="text-white">Fecha-Hora: {fecha.created_at?fecha.created_at.slice(0,19).replace('T',' '):null}</h5></div>
           </div>
           
           

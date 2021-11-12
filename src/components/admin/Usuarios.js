@@ -30,36 +30,36 @@ const Usuarios = () => {
     }
 
     const columnas=[
-        {
+        /*{
             title:'Id',
             field:'id',
             cellStyle:{width:'0%'}
-        },
+        },*/
         
         {
             title:'Nombre',
             field:'nombre',
-            cellStyle:{width:'15%'}
+           // cellStyle:{width:'15%'}
         },
         {
             title:'Dni',
             field:'dni',
-            cellStyle:{width:'5%'}
+            //cellStyle:{width:'5%'}
         },
         
         {
             title:'Celular',
             field:'celular',
-            cellStyle:{width:'5%'}
+            //cellStyle:{width:'5%'}
         },    
-        {
+        /*{
             title:'Usuario',
             field:'username',
         },
         {
             title:'Clave',
             field:'clave',
-        },
+        },*/
         {
             title:'Correo',
             field:'email',
@@ -67,7 +67,7 @@ const Usuarios = () => {
         {
             title:'Rol',
             field:'rol_id',
-            cellStyle:{width:'5%'},
+            //cellStyle:{width:'5%'},
             render:(row)=><div>{row.rol_id===2?"Candidato":"Administrador"}</div>
         },
         {
