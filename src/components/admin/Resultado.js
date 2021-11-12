@@ -142,7 +142,7 @@ const options = {
     r: {
       pointLabels: {
         font: {
-          size: 12
+          size: 10
         }
       }
     },
@@ -307,8 +307,12 @@ function getResultado(codigo){
             {data.message}
             </Typography>
             
-            
-            <button className="btn btn-block text-white mb-2" style={{backgroundColor:'#23498D', float:'right', fontWeight: 'bold'}} onClick={print} ><PictureAsPdfIcon/> DESCARGAR RESULTADO</button>
+            {
+              test.data?
+              <button className="btn btn-block text-white mb-2" style={{backgroundColor:'#23498D', float:'right', fontWeight: 'bold'}} onClick={print} ><PictureAsPdfIcon/> DESCARGAR RESULTADO</button>
+              :null
+            }
+           
             
             
               
@@ -329,6 +333,7 @@ function getResultado(codigo){
                       null
                     ))
                 }</h5></div>
+
             <div><h5 className="text-white">Fecha-Hora: {fecha.created_at?fecha.created_at.slice(0,19).replace('T',' '):null}</h5></div>
           </div>
           
@@ -347,8 +352,8 @@ function getResultado(codigo){
   <thead className="bg-light">
     <tr>
       <th scope="col">Factor</th>
-      <th scope="col">Suma</th>
-      <th scope="col">Definicion polo bajo</th>
+      <th scope="col">Número</th>
+      <th scope="col">Definición polo bajo</th>
       <th scope="col">0</th>
       <th scope="col">1</th>
       <th scope="col">2</th>
@@ -359,7 +364,7 @@ function getResultado(codigo){
       <th scope="col">7</th>
       <th scope="col">8</th>
       <th scope="col">9</th>
-      <th scope="col">Definicion polo alto</th>
+      <th scope="col">Definición polo alto</th>
       <th scope="col">Fac. 2do orden</th>
     </tr>
   </thead>
@@ -1715,7 +1720,7 @@ function getResultado(codigo){
   </tbody>
               </table> 
               </div>
-              <div className="col-lg-8 m-auto p-4" id="radar">
+              <div className="col-lg-9 m-auto p-4" id="radar">
             <Card sx={{ padding:'20px'}} elevation={4}>
                 <Radar data={chartData} options={options} />
 
@@ -1847,7 +1852,7 @@ function getResultado(codigo){
               </tbody>
             </table>
              </>:
-             <h3 className="fw-bold m-2">{error} ... </h3>
+             <h3 className="fw-bold m-2">{error}</h3>
            }
 
 {/*<table className="table table-bordered">
