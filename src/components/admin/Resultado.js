@@ -183,7 +183,7 @@ const print = () => {
       // etc
     },
     headStyles: { halign: 'center',fillColor: [21, 101, 192] },
-    head:[['Nombre','DNI','Cargo','Fecha/hora de creación']],
+    head:[['Nombre','DNI','Cargo','Fecha/Hora de creación']],
     body:[[
       candidato.nombre,candidato.dni,getCargo(candidato.job_id),fecha.created_at?fecha.created_at.slice(0,19).replace('T',' '):null
     ]],
