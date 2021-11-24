@@ -7,6 +7,9 @@ import QuizIcon from '@mui/icons-material/Quiz';
 import EmailIcon from '@mui/icons-material/Email';
 import { useHistory } from 'react-router';
 
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+
 const Usuarios = () => {
     const [data,setData]=useState([]);
 
@@ -28,12 +31,41 @@ const Usuarios = () => {
         
         
     }
+    async function newTest(userid){
+        var opcion = window.confirm("Está seguro que desea habilitar este test?")
+        if (opcion){
+            const id ={
+                user_id:userid
+            }
+    
+            let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/status`,{
+                method:'POST',
+                headers:{
+                    "Content-Type":"application/json",
+                    "Accept":"application/json"
+                },
+                body:JSON.stringify(id)
+            });
+            result = await result.json();
+            if (result.code===1) {
+                setAlert(result.message)
+                setError("")
+                getData()
+                getJob()
+                //history.push("/usuarios")
+            } else {
+                setError(result.message)
+                setAlert("")
+            }
+        }
+       
+    }
 
     const columnas=[
         /*{
             title:'Id',
             field:'id',
-            cellStyle:{width:'0%'}
+            cellStyle:{width:'0%'},
         },*/
         
         {
@@ -153,18 +185,31 @@ const Usuarios = () => {
           data={data}
           title= {<h3 className="fw-bold" style={{color:'#23498D'}}>Lista de usuarios</h3>}
           actions={[
+            { 
+                icon:CheckBoxIcon,
+                iconProps: { style: { margin:"5px",padding:"0", marginLeft:"0"} },
+                tooltip: 'Habilitar test',
+                onClick:(e,data)=>{newTest(data.id)}
+            },
             {
                 icon:'edit',
                 iconProps: { style: { margin:"0",padding:"0"} },
                 tooltip: 'Editar usuario',
                 onClick:(e,data)=>{history.push("/update/"+data.id)}
             },
-            { 
+            /*{ 
                 icon:QuizIcon,
                 iconProps: { style: { margin:"5px",padding:"0", marginLeft:"0"} },
                 tooltip: 'Ver test',
                 onClick:(e,data)=>{history.push("/resultado/"+data.id)}
+            },*/
+            { 
+                icon:ListAltIcon,
+                iconProps: { style: { margin:"5px",padding:"0", marginLeft:"0"} },
+                tooltip: 'Ver test',
+                onClick:(e,data)=>{history.push("/list/"+data.id)}
             },
+            
             { 
                 icon:EmailIcon,
                 iconProps: { style: { margin:"5px",padding:"0", marginLeft:"0"} },

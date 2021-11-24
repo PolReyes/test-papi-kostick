@@ -11,6 +11,7 @@ import Resultado from './components/admin/Resultado';
 import  Update from './components/admin/Update';
 import ProtectedUser from './ProtectedUser';
 import Cargo from './components/admin/Cargo';
+import List from './components/admin/List';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         <Route path="/create">
           <Protected Cmp={Create}/>
         </Route>
-        <Route path="/resultado/:id">
+        <Route path="/list/resultado/:id/:iduser">
           <Protected Cmp={Resultado}/>
         </Route>
         <Route path="/update/:id">
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path="/cargo">
           <Protected Cmp={Cargo}/>
+        </Route>
+        <Route path="/list/:id">
+          <Protected Cmp={List}/>
         </Route>
         <Route path="/" exact>
           <Login/>

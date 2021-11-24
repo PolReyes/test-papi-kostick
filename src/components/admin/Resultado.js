@@ -54,7 +54,7 @@ const Resultado = (props) => {
           suma.push(Obj.respuesta)
           //factor.push(Obj.factor_id)
         }
-        console.log(result.date)
+        //console.log(result.date)
         setFecha(result.date)
       } else {
         setError("El candidato no ha realizado el test")
@@ -64,7 +64,7 @@ const Resultado = (props) => {
      // console.log(data)
   }//
   async function getCandidato(){
-    let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/`+props.match.params.id)
+    let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/`+props.match.params.iduser)
     result = await result.json();
     if (result.code===1) {
       setCandidato(result.data)  
