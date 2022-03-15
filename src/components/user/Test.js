@@ -235,7 +235,7 @@ const Test = () => {
         //console.warn("data",email,password)
         //let item={email,password}
         //http://localhost:8000
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/test`,{
+        let result = await fetch(`http://137.184.89.132/dev/test`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
@@ -302,7 +302,7 @@ const Test = () => {
     return (
         <div>
         <Header/><br/><br/>
-        <Grid  style={{ minHeight: '100vh' }} xs={11} xl={4} style={{ minHeight: '100vh', margin:'auto',}} item>
+        <Grid xs={11} xl={4} style={{ minHeight: '100vh', margin:'auto',}} item>
         <Card sx={{ minWidth: 275 , padding:'20px'}} elevation={4}>
         <h2 className="fw-bold" style={{color:'#23498D'}} >
         TEST PAPI KOSTICK

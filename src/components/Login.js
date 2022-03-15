@@ -43,7 +43,7 @@ const Login = () => {
         //console.warn("data",email,password)
         //let item={email,password}
         //http://localhost:8000
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/login`,{
+        let result = await fetch(`http://137.184.89.132/dev/login`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",

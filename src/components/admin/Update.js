@@ -21,7 +21,7 @@ const Update = (props) => {
     },[])
 
     async function getCandidato(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/`+props.match.params.id)
+        let result= await fetch(`http://137.184.89.132/dev/user/`+props.match.params.id)
         result = await result.json();
         if (result.code===1) {
           setCandidato(result.data)
@@ -41,7 +41,7 @@ const Update = (props) => {
         }
     }
     async function getJob(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
+        let result= await fetch(`http://137.184.89.132/dev/job`)
         result = await result.json();
         setJob(result.jobList)
         
@@ -71,7 +71,7 @@ const Update = (props) => {
     async function editCandidato(id){
         
         
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/`+id,{
+        let result = await fetch(`http://137.184.89.132/dev/user/`+id,{
             method:'PUT',
             headers:{
                 "Content-Type":"application/json",
@@ -189,7 +189,7 @@ const Update = (props) => {
                     <select className="form-select" id="Cargo" name="job_id" onChange={handleInput}>
                         
                     {
-                    job.map((item,index)=>(
+                    job?.map((item,index)=>(
                     candidato.job_id===item.id?
                     <>
                     <option selected key={item.id} value={item.id}>{item.office} </option>

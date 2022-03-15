@@ -30,14 +30,14 @@ const List = (props) => {
     },[])
 
     async function getData(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/test/user/`+props.match.params.id)
+        let result= await fetch(`http://137.184.89.132/dev/test/user/`+props.match.params.id)
         result = await result.json();
         setData(result.data)
         //console.log(data)
         
     }
     async function getCandidato(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user/`+props.match.params.id)
+        let result= await fetch(`http://137.184.89.132/dev/user/`+props.match.params.id)
         result = await result.json();
         if (result.code===1) {
           setCandidato(result.data)  
@@ -51,7 +51,7 @@ const List = (props) => {
     }
     
     async function getJob(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
+        let result= await fetch(`http://137.184.89.132/dev/job`)
             result = await result.json();
             if (result.code===1) {
                 setJob(result.jobList)
@@ -98,7 +98,7 @@ const List = (props) => {
     async function editFechaVen(){
         
         
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/test/days`,{
+        let result = await fetch(`http://137.184.89.132/dev/test/days`,{
             method:'PUT',
             headers:{
                 "Content-Type":"application/json",

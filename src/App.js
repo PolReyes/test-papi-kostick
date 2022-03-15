@@ -12,6 +12,8 @@ import  Update from './components/admin/Update';
 import ProtectedUser from './ProtectedUser';
 import Cargo from './components/admin/Cargo';
 import List from './components/admin/List';
+import Vigencia from './components/admin/Vigencia';
+import EditarVigencia from './components/admin/EditarVigencia';
 
 function App() {
   return (
@@ -39,6 +41,12 @@ function App() {
         </Route>
         <Route path="/list/:id">
           <Protected Cmp={List}/>
+        </Route>
+        <Route path="/vigencia">
+          <Protected Cmp={Vigencia}/>
+        </Route>
+        <Route path="/editarVigencia">
+          <Protected Cmp={EditarVigencia}/>
         </Route>
         <Route path="/" exact>
           <Login/>

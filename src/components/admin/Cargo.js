@@ -32,7 +32,7 @@ const Cargo = () => {
     let jobid=[];
     //const [job,setJob] = useState("")
     async function getUser(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user`)
+        let result= await fetch(`http://137.184.89.132/dev/user`)
         result = await result.json();
         if (result.code===1) {
         setUser(result.usersList)
@@ -65,7 +65,7 @@ const Cargo = () => {
     
 
     async function getData(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
+        let result= await fetch(`http://137.184.89.132/dev/job`)
         result = await result.json();
         setData(result.jobList)
         
@@ -104,7 +104,7 @@ const Cargo = () => {
         setAccion("Agregar")
         handleOpen()
 
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`,{
+        let result = await fetch(`http://137.184.89.132/dev/job`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
@@ -142,7 +142,7 @@ const Cargo = () => {
     async function editCargo(id){
         
         
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job/`+id,{
+        let result = await fetch(`http://137.184.89.132/dev/job/`+id,{
             method:'PUT',
             headers:{
                 "Content-Type":"application/json",
@@ -171,7 +171,7 @@ const Cargo = () => {
          
         var opcion = window.confirm("Está seguro que desea eliminar: "+ dato.office)
         if (opcion){
-            let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job/`+dato.id,{
+            let result = await fetch(`http://137.184.89.132/dev/job/`+dato.id,{
                 method:'DELETE',
                 headers:{
                     "Content-Type":"application/json",
@@ -242,7 +242,7 @@ const Cargo = () => {
                 <tbody>
                     
                     {
-                    data.map((item,index) =>(
+                    data?.map((item,index) =>(
                     <tr key={index}>
                     <td>
                     {item.office}

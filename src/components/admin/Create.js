@@ -18,7 +18,7 @@ const Create = () => {
     },[])
 
     async function getData(){
-        let result= await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/job`)
+        let result= await fetch(`http://137.184.89.132/dev/job`)
         result = await result.json();
         setData(result.jobList)
         
@@ -52,7 +52,7 @@ const Create = () => {
         //console.warn("data",email,password)
         //let item={email,password}
         //http://localhost:8000
-        let result = await fetch(`https://endpoints-test-papikostick.herokuapp.com/dev/user`,{
+        let result = await fetch(`http://137.184.89.132/dev/user`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
@@ -164,7 +164,7 @@ const Create = () => {
                     <select className="form-select" id="Cargo" name="job_id" onChange={handleInput}>
                     <option selected>Seleccionar</option>
                     {
-                    data.map((item,index)=>(
+                    data?.map((item,index)=>(
 
                     <option key={index} value={item.id}>
                     {item.office}
