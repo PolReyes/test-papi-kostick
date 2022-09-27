@@ -27,7 +27,7 @@ const Resultado = (props) => {
   }, [])
 
   async function getData() {
-    let result = await fetch(`http://137.184.89.132/dev/test/result/` + props.match.params.id)
+    let result = await fetch(`http://159.223.170.205/dev/test/result/` + props.match.params.id)
     result = await result.json();
     if (result.code === 1) {
       setData(result)
@@ -44,7 +44,7 @@ const Resultado = (props) => {
   //let factor=[]
   async function getTest() {
 
-    let result = await fetch(`http://137.184.89.132/dev/test/` + props.match.params.id)
+    let result = await fetch(`http://159.223.170.205/dev/test/` + props.match.params.id)
     result = await result.json();
     if (result.code === 1) {
       setTest(result)
@@ -64,7 +64,7 @@ const Resultado = (props) => {
     // console.log(data)
   }//
   async function getCandidato() {
-    let result = await fetch(`http://137.184.89.132/dev/user/` + props.match.params.iduser)
+    let result = await fetch(`http://159.223.170.205/dev/user/` + props.match.params.iduser)
     result = await result.json();
     if (result.code === 1) {
       setCandidato(result.data)
@@ -79,7 +79,7 @@ const Resultado = (props) => {
   const [job, setJob] = useState([]);
 
   async function getJob() {
-    let result = await fetch(`http://137.184.89.132/dev/job`)
+    let result = await fetch(`http://159.223.170.205/dev/job`)
     result = await result.json();
     if (result.code === 1) {
       setJob(result.jobList)
